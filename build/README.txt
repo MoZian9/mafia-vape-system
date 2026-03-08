@@ -1,0 +1,1 @@
+Put icon.ico here later inside build/icons before running npm run dist.

@@ -1,0 +1,82 @@
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+body {
+  user-select: none;
+}
+
+.app-shell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.app-watermark::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('./assets/mafia-vape-logo.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: min(55vw, 720px);
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.title-bar {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-app-region: drag;
+  padding: 0 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(90deg, rgba(143,23,54,0.65), rgba(10,10,12,0.95));
+}
+
+.title-bar__left,
+.title-bar__right,
+.title-bar__center {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title-bar .MuiIconButton-root {
+  -webkit-app-region: no-drag;
+}
+
+.menu-drawer-paper {
+  background: linear-gradient(180deg, rgba(143,23,54,0.86), rgba(16,16,20,0.98)) !important;
+  backdrop-filter: blur(20px);
+}
+
+.hidden-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(128, 64, 80, 0.2);
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.MuiMenu-paper,
+.MuiPopover-paper {
+  backdrop-filter: blur(20px);
+}
+
+main {
+  flex: 1;
+  overflow: auto;
+}

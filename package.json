@@ -1,0 +1,78 @@
+{
+  "name": "mafia-vape-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mafia Vape desktop management system built with Electron, React and Firebase.",
+  "author": "FRTS",
+  "main": "electron/main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "concurrently -k \"vite\" \"wait-on http://127.0.0.1:5173 && electron .\"",
+    "build": "vite build",
+    "dist": "npm run build && electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.7",
+    "@mui/material": "^6.4.7",
+    "dayjs": "^1.11.13",
+    "electron-log": "^5.2.4",
+    "electron-updater": "^6.3.9",
+    "firebase": "^11.4.0",
+    "i18next": "^24.2.3",
+    "node-machine-id": "^1.1.12",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.4.1",
+    "uuid": "^11.1.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.8",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "electron": "^34.3.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.3",
+    "vite": "^6.2.0",
+    "wait-on": "^8.0.2"
+  },
+  "build": {
+    "appId": "com.mafiavape.system",
+    "productName": "Mafia Vape",
+    "copyright": "Copyright © 2026 FRTS",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "MoZian9",
+        "repo": "mafia-vape-system"
+      }
+    ],
+    "asar": true,
+    "files": [
+      "dist/**",
+      "electron/**",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "differentialPackage": true
+    },
+    "artifactName": "mafia-vape-setup-${version}.${ext}"
+  }
+}
